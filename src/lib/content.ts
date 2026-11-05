@@ -273,6 +273,11 @@ export const milestones = [
     state: 'Built · verified on the simulator',
   },
   {
+    title: 'Code meanings, check engine and sport view',
+    body: 'Built-in meanings for the standard OBD-II codes with their source, importing your own with a source and licence, a check-engine card with readiness monitors, and a sport view of the torque and power the engine reports. All read-only.',
+    state: 'Built · testing on the simulator',
+  },
+  {
     title: 'Real-car validation',
     body: 'Confirming every profile on real cars, then the first public Windows release.',
     state: 'In progress',

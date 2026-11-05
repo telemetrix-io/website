@@ -18,8 +18,8 @@ paths, DotCollab ids, agent names, test counts, contract sections, keys or the o
 ## Rules
 
 - **Never claim more than the product does.** Check `../internal-docs/STATUS.md`. Today: everything is built and
-  verified on the simulator; real-car validation is in progress; BMW/VW code descriptions aren't shipped (they read
-  Unknown); only CAN cars (ISO 15765-4, 500 kbit/s) and the OBDLink EX on Windows are supported.
+  verified on the simulator; real-car validation is in progress; generic OBD-II code meanings ship (OBDex,
+  CC0); BMW/VW manufacturer code descriptions aren't shipped (they read Unknown); only CAN cars (ISO 15765-4, 500 kbit/s) and the OBDLink EX on Windows are supported.
 - **Keep it consistent with the public docs** (`../docs/`). A change in support, safety or privacy updates both
   sites and `../internal-docs/`.
 - **Use the app's words** for screens and labels.

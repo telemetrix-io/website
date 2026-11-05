@@ -247,8 +247,9 @@ export default function HomePage() {
             <p className="font-semibold text-fg">Early access: what’s still being validated</p>
             <p className="mt-1.5">
               Every profile is verified on the built-in simulator, and confirming them on real cars is in progress.
-              BMW and VW manufacturer code descriptions aren’t included yet, so those codes read <em>Unknown</em>{' '}
-              until you add a definition with its source.{' '}
+              Meanings for the standard OBD-II codes are built in, from an openly published, public-domain list. BMW
+              and VW manufacturer code descriptions aren’t included, so those codes read <em>Unknown</em> until you
+              add or import a definition with its source.{' '}
               <a href={docs('/reference/vehicles')} className="text-cyan underline-offset-4 hover:underline">
                 Supported vehicles in the docs
               </a>
