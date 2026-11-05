@@ -264,7 +264,12 @@ export const milestones = [
   },
   {
     title: 'Guarded clearing',
-    body: 'Clearing fault codes, the only write, behind five safeguards and a read-back.',
+    body: 'Clearing fault codes behind five safeguards and a read-back.',
+    state: 'Built · verified on the simulator',
+  },
+  {
+    title: 'Service and software',
+    body: 'What service the car says is due, a guarded reminder reset, module software versions and each car\'s official update route. Telemetrix never installs software.',
     state: 'Built · verified on the simulator',
   },
   {

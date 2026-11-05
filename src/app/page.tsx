@@ -302,10 +302,12 @@ export default function HomePage() {
         <Reveal className="panel mt-4 p-6 sm:p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-md">
-              <h3 className="text-lg font-semibold">The one write: clearing fault codes</h3>
+              <h3 className="text-lg font-semibold">Guarded writes: clearing fault codes</h3>
               <p className="mt-2 text-sm leading-relaxed text-fg-muted">
                 Five safeguards stand between you and a clear, and Telemetrix tells you plainly that a cleared code is
-                not a repaired car.
+                not a repaired car. Resetting a service reminder uses the same safeguards, never writes a mileage, and
+                is offered only where the car&apos;s exact reset command comes from a real source (today: the
+                simulator only).
               </p>
             </div>
             <ol className="flex flex-wrap gap-2">
