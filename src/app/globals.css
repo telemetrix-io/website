@@ -1,0 +1,255 @@
+@import 'tailwindcss';
+
+/*
+ * Telemetrix "Graphite": the app's own palette (frontend/src/styles/tokens.css), so the site and the product
+ * look like one thing. The site is dark-only, like the app's default theme.
+ */
+@theme {
+  --color-canvas: #0b0d10;
+  --color-sunken: #08090b;
+  --color-surface-1: #111419;
+  --color-surface-2: #161a20;
+  --color-surface-3: #1c2129;
+  --color-surface-4: #232933;
+
+  --color-line-subtle: #1b2028;
+  --color-line: #252c36;
+  --color-line-strong: #343d4a;
+
+  --color-fg: #e7ebf0;
+  --color-fg-muted: #a4aebb;
+  /* Lighter than the app's tertiary so small text keeps 4.5:1 on the canvas. */
+  --color-fg-subtle: #7d8896;
+  --color-fg-inverse: #071016;
+
+  --color-cyan: #22c4ee;
+  --color-cyan-strong: #5ad6f6;
+  --color-cyan-deep: #0e7490;
+  --color-ok: #3fb67b;
+  --color-warn: #f1a531;
+  --color-bad: #f05252;
+  --color-info: #5b9dff;
+  --color-mock: #a78bfa;
+  --color-ai: #c084fc;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(34 196 238 / 0.3);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  /* Mono eyebrow above section titles, like the app's uppercase labels. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+
+  .panel {
+    background: var(--color-surface-1);
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.03) inset,
+      0 1px 2px rgb(0 0 0 / 0.4);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.625rem;
+    padding: 0.7rem 1.15rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.25rem;
+    transition:
+      background-color 160ms var(--ease-out-soft),
+      border-color 160ms var(--ease-out-soft),
+      transform 160ms var(--ease-out-soft),
+      box-shadow 160ms var(--ease-out-soft);
+    white-space: nowrap;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    background: var(--color-cyan);
+    color: var(--color-fg-inverse);
+    box-shadow: 0 8px 24px -10px rgb(34 196 238 / 0.65);
+  }
+  .btn-primary:hover {
+    background: var(--color-cyan-strong);
+  }
+  .btn-ghost {
+    border: 1px solid var(--color-line-strong);
+    background: rgb(17 20 25 / 0.6);
+    color: var(--color-fg);
+  }
+  .btn-ghost:hover {
+    border-color: #4a5566;
+    background: var(--color-surface-2);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-line);
+    padding: 0.125rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Text with the brand sweep: cyan into the app's mock violet. */
+  .grad-text {
+    background: linear-gradient(100deg, #5ad6f6 0%, #22c4ee 45%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Faint instrument grid, faded out towards the edges. */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---- motion ---------------------------------------------------------------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes trace {
+  to {
+    stroke-dashoffset: -1200;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.rise {
+  animation: rise 700ms var(--ease-out-soft) both;
+}
+.float {
+  animation: float 7s ease-in-out infinite;
+}
+.trace {
+  stroke-dasharray: 220 980;
+  animation: trace 6s linear infinite;
+}
+.pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* Scroll reveal: only elements below the fold at load get hidden (see components/reveal.tsx). */
+[data-reveal='pending'] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+[data-reveal='shown'] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 700ms var(--ease-out-soft),
+    transform 700ms var(--ease-out-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise,
+  .float,
+  .trace,
+  .pulse-dot {
+    animation: none;
+  }
+  [data-reveal='pending'] {
+    opacity: 1;
+    transform: none;
+  }
+}

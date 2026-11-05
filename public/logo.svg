@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Telemetrix gauge mark — same drawing as the app's sidebar wordmark, with fixed colours so it reads on light and dark. -->
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#1c2129" stroke="#343d4a"/>
+  <path d="M7 20.5a9 9 0 0 1 18 0" stroke="#343d4a" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M7 20.5a9 9 0 0 1 12.2-8.4" stroke="#22c4ee" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M16 20.5 21.5 13" stroke="#e7ebf0" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="16" cy="20.5" r="1.8" fill="#e7ebf0"/>
+</svg>
